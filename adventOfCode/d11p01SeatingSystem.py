@@ -1,5 +1,5 @@
 from itertools import product
-from typing import List, Iterator, Tuple, Mapping, Generator
+from typing import List, Iterator, Tuple
 from .aocUtils import solver
 
 FILENAME = 'inputs/seating_system.txt'
@@ -16,7 +16,7 @@ def solve(seats: List[List[str]], seat_char: str = SEAT_CHAR, max_neighbors: int
     return sum(get_stable_state(state, dependencies, max_neighbors))
 
 
-def get_stable_state(state: Tuple[str], dependencies: List[List[int]], max_neighbors: int) -> Tuple[str]:
+def get_stable_state(state: Tuple[bool], dependencies: List[List[int]], max_neighbors: int) -> Tuple[bool]:
     visited_states = set()
     last_state = None
     while last_state != state:
