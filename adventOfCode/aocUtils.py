@@ -26,12 +26,12 @@ Transformer = Callable[[Iterable[Input]], Iterable[Input]]
 
 def solver(filename: str, type_: Callable[[str], Input],
            transformer: Transformer = lambda x: x) -> SolverDecorator:
-
     def decorator(fn: SolverFn) -> SolverWrapper:
         def wrapper(**kwargs) -> Return:
             with open(filename, 'r') as fi:
-                return fn(transformer(map(type_, fi)), **kwargs)
+                return fn(transformer(type_(li.strip()) for li in fi),
+                          **kwargs)
+
         return wrapper
+
     return decorator
-
-
