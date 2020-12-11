@@ -10,8 +10,6 @@ MAX_NEIGHBORS = 3
 @solver(FILENAME, list, list)
 def solve(seats: List[List[str]], seat_char: str = SEAT_CHAR, max_neighbors: int = MAX_NEIGHBORS) -> int:
     dependencies = get_all_seat_dependencies(seats, seat_char)
-    for d in enumerate(dependencies):
-        print(*d)
     state = (False,) * len(dependencies)
     return sum(get_stable_state(state, dependencies, max_neighbors))
 
