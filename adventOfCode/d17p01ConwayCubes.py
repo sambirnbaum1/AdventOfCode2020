@@ -1,4 +1,3 @@
-from functools import lru_cache
 from typing import Tuple, Iterator, FrozenSet, Iterable
 from itertools import product, chain
 from .aocUtils import solver
