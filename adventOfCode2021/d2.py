@@ -23,6 +23,7 @@ def part2(input_: Iterable[str]) -> int:
     )
     return int(x.real * x.imag)
 
+
 if __name__ == '__main__':
     with open('inputs/d2.txt', 'r') as fi:
         input_ = tuple(fi)
