@@ -2,11 +2,11 @@ from timeit import timeit
 from typing import Tuple
 
 
-def part1(input_: Tuple[int]) -> int:
+def part1(input_: Tuple[int, ...]) -> int:
     return sum(1 for height1, height2 in zip(input_, input_[1:]) if height2 > height1)
 
 
-def part2(input_: Tuple[int]) -> int:
+def part2(input_: Tuple[int, ...]) -> int:
     return part1(tuple(sum(window) for window in zip(*(input_[start:] for start in range(3)))))
 
 
